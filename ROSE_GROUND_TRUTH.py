@@ -2,6 +2,7 @@
 # download everything and run this jaunt
 #NOTE- don't need to crop or resize because represenation of poses should be relative
 
+#******FIX THIS SO THAT ITS EASY TO DISTINGUISH BETWEEN DIFFERENT VIDEOS****
 
 #switch from pickle to something else - https://shocksolution.com/2010/01/10/storing-large-numpy-arrays-on-disk-python-pickle-vs-hdf5adsf/
 
@@ -79,6 +80,6 @@ for video in VIDEOS:
     #print("SAVED:", video)
     print("TIME:", end - start)
     vc +=1
-    if vc % 100 == 0:
+    if vc % 10 == 0:
         np.save('frames_1-'+str(vc), frames)
         print("SAVED:", str(vc))
