@@ -210,13 +210,15 @@ def process (input_image):
             deleteIdx.append(i)
     subset = np.delete(subset, deleteIdx, axis=0)
 
-    canvas = input_image  # B,G,R order
+    canvas = np.zeros((360, 640, 3), np.uint8)  # B,G,R order
+    canvas[:] = (255, 255, 255)
+
     for i in range(18):
         for j in range(len(all_peaks[i])):
             cv2.circle(canvas, all_peaks[i][j][0:2], 4, colors[i], thickness=-1)
 
     stickwidth = 4
-
+    #blank_image = np.zeros((360, 640, 3), np.uint8)
     for i in range(17):
         for n in range(len(subset)):
             index = subset[n][np.array(limbSeq[i]) - 1]
